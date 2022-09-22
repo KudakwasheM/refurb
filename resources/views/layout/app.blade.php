@@ -30,9 +30,11 @@
 </head>
 
 <body>
+    @include('partials._navbar')
     <div>
         @yield('content')
     </div>
+    @include('partials._footer')
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="vendor/glightbox/js/glightbox.min.js"></script>
     <script src="vendor/nouislider/nouislider.min.js"></script>
