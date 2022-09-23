@@ -16,16 +16,16 @@
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/ui-features/typography.html">Add New</a>
+                        <a class="nav-link" href="/products/create">Add New</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/ui-features/buttons.html">All Products</a>
+                        <a class="nav-link" href="/products">All Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/ui-features/dropdowns.html">Available Products</a>
+                        <a class="nav-link" href="/products/available">Available Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/ui-features/typography.html">Sold Products</a>
+                        <a class="nav-link" href="/products/sold">Sold Products</a>
                     </li>
                 </ul>
             </div>

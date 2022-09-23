@@ -29,7 +29,7 @@ class AuthController extends Controller
                 // 'password' => 'confirmed',
             ],
             [
-                'name.required' => 'Name of is Required',
+                'name.required' => 'Name is Required',
                 'email.required' => 'Email Is Required',
                 // 'password.required' => 'Password of Required',
                 // 'password.confirmed' => 'Password Needs Confirmation',
