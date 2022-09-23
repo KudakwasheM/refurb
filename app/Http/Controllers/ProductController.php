@@ -86,7 +86,13 @@ class ProductController extends Controller
             $product->created_by = Auth::user()->name;
 
             if ($request->hasFile('images')) {
-                $product->images = $request->file('images')->store('products', 'public');
+                $image_path = $request->images;
+                foreach ($image_path as $image) {
+                    $image = $request->file('images')->store('products', 'public');
+                    $images[] = $image;
+                }
+
+                $product->images = $images;
             }
 
             $product->save();
