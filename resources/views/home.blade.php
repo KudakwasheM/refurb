@@ -106,7 +106,36 @@
                 </header>
                 <div class="row">
                     <!-- PRODUCT-->
-                    <div class="col-xl-3 col-lg-4 col-sm-6">
+                    @foreach ($random as $r)
+                        <div class="col-xl-3 col-lg-4 col-sm-6">
+                            <div class="product text-center">
+                                <div class="position-relative mb-3">
+                                    <div class="badge text-white bg-"></div><a class="d-block" href="detail.html"><img
+                                            class="img-fluid w-100" src="{{ asset('storage/' . $r->images) }}"
+                                            alt="..."></a>
+                                    <div class="product-overlay">
+                                        <ul class="mb-0 list-inline">
+                                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark"
+                                                    href="#!"><i class="far fa-heart"></i></a></li>
+                                            <li class="list-inline-item m-0 p-0">
+                                                <form action="/cart" method="post">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-sm btn-dark">Add to
+                                                        cart</button>
+                                                </form>
+                                            </li>
+                                            <li class="list-inline-item me-0"><a class="btn btn-sm btn-outline-dark"
+                                                    href="#productView" data-bs-toggle="modal"><i
+                                                        class="fas fa-expand"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <h6> <a class="reset-anchor" href="detail.html">{{ $r->name }}</a></h6>
+                                <p class="small text-muted">{{ $r->price }}</p>
+                            </div>
+                        </div>
+                    @endforeach
+                    {{-- <div class="col-xl-3 col-lg-4 col-sm-6">
                         <div class="product text-center">
                             <div class="position-relative mb-3">
                                 <div class="badge text-white bg-"></div><a class="d-block" href="detail.html"><img
@@ -126,9 +155,9 @@
                             <h6> <a class="reset-anchor" href="detail.html">Kui Ye Chen’s AirPods</a></h6>
                             <p class="small text-muted">$250</p>
                         </div>
-                    </div>
+                    </div> --}}
                     <!-- PRODUCT-->
-                    <div class="col-xl-3 col-lg-4 col-sm-6">
+                    {{-- <div class="col-xl-3 col-lg-4 col-sm-6">
                         <div class="product text-center">
                             <div class="position-relative mb-3">
                                 <div class="badge text-white bg-primary">Sale</div><a class="d-block"
@@ -283,7 +312,7 @@
                             <p class="small text-muted">$351</p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </section>
             <!-- SERVICES-->
             <section class="py-5 bg-light">
