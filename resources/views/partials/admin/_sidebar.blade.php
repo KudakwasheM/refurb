@@ -113,9 +113,8 @@
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/logout">
-                <i class="typcn typcn-home-outline menu-icon"></i>
+                <i class="typcn typcn-arrow-back-outline menu-icon"></i>
                 <span class="menu-title">Logout</span>
-                {{-- <div class="badge badge-danger">new</div> --}}
             </a>
         </li>
     </ul>
