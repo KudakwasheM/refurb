@@ -29,7 +29,7 @@ class AuthController extends Controller
                 // 'password' => 'confirmed',
             ],
             [
-                'name.required' => 'Name of is Required',
+                'name.required' => 'Name is Required',
                 'email.required' => 'Email Is Required',
                 // 'password.required' => 'Password of Required',
                 // 'password.confirmed' => 'Password Needs Confirmation',
@@ -96,8 +96,10 @@ class AuthController extends Controller
 
     public function dashboard()
     {
+
+        $users = User::orderBy('created_at', 'desc')->get();
         if (Auth::check()) {
-            return view('dashboard');
+            return view('dashboard', compact('users'));
         } else {
             return redirect('/login')->with('error', 'Oops, Something went wrong try again.');
         }
