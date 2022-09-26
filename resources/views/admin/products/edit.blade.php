@@ -41,8 +41,9 @@
                     <div class="col-12 grid-margin">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Add New Product</h4>
-                                <form class="form-sample" method="post" action="/products" enctype="multipart/form-data">
+                                <h4 class="card-title">Update Product</h4>
+                                <form class="form-sample" method="post" action="/products/update/{{ $product->id }}"
+                                    enctype="multipart/form-data">
                                     @csrf
                                     <p class="card-description">
                                         Product Info
@@ -52,6 +53,7 @@
                                             <div class="form-group">
                                                 <label class="col-form-label">Brand</label>
                                                 <select class=" form-control js-example-basic-single w-100" name="brand">
+                                                    <option value="{{ $product->brand }}">{{ $product->brand }}</option>
                                                     <option value="HP">HP</option>
                                                     <option value="Lenovo">Lenovo</option>
                                                     <option value="Toshiba">Toshiba</option>
@@ -69,7 +71,8 @@
                                             <div class="form-group">
                                                 <label class="col-form-label">Product Name</label>
                                                 <div class="col-sm-12">
-                                                    <input type="text" class="form-control" name="name" />
+                                                    <input type="text" class="form-control" name="name"
+                                                        value="{{ $product->name }}" />
                                                     @error('name')
                                                         <p class="text-red-500 mt-1">{{ $message }}</p>
                                                     @enderror
@@ -82,6 +85,7 @@
                                             <div class="form-group">
                                                 <label class="col-form-label">Drive Type</label>
                                                 <select class=" form-control js-example-basic-single w-100" name="drive">
+                                                    <option value="{{ $product->drive }}">{{ $product->drive }}</option>
                                                     <option value="HDD">HDD</option>
                                                     <option value="SSD">SSD</option>
                                                 </select>
@@ -95,6 +99,8 @@
                                                 <label class="col-form-label">Processor</label>
                                                 <select class=" form-control js-example-basic-single w-100"
                                                     name="processor">
+                                                    <option value="{{ $product->processor }}">{{ $product->processor }}
+                                                    </option>
                                                     <option value="Core i3">Core i3</option>
                                                     <option value="Core i5">Core i5</option>
                                                     <option value="Core i7">Core i7</option>
@@ -112,7 +118,8 @@
                                             <div class="form-group">
                                                 <label class="col-form-label">Storage</label>
                                                 <div class="col-sm-12">
-                                                    <input type="text" class="form-control" name="storage" />
+                                                    <input type="text" class="form-control" name="storage"
+                                                        value="{{ $product->storage }}" />
                                                     @error('storage')
                                                         <p class="text-red-500 mt-1">{{ $message }}</p>
                                                     @enderror
@@ -123,7 +130,8 @@
                                             <div class="form-group">
                                                 <label class="col-form-label">RAM</label>
                                                 <div class="col-sm-12">
-                                                    <input type="text" class="form-control" name="ram" />
+                                                    <input type="text" class="form-control" name="ram"
+                                                        value="{{ $product->ram }}" />
                                                     @error('ram')
                                                         <p class="mt-1">{{ $message }}</p>
                                                     @enderror
@@ -136,7 +144,8 @@
                                             <div class="form-group">
                                                 <label class="col-form-label">Screen Size</label>
                                                 <div class="col-sm-12">
-                                                    <input type="text" class="form-control" name="screen" />
+                                                    <input type="text" class="form-control" name="screen"
+                                                        value="{{ $product->screen }}" />
                                                     @error('screen')
                                                         <p class="text-red-500 mt-1">{{ $message }}</p>
                                                     @enderror
@@ -147,7 +156,8 @@
                                             <div class="form-group">
                                                 <label class="col-form-label">Price (USD)</label>
                                                 <div class="col-sm-12">
-                                                    <input type="text" class="form-control" name="price" />
+                                                    <input type="text" class="form-control" name="price"
+                                                        value="{{ $product->price }}" />
                                                     @error('price')
                                                         <p class="text-red-500 mt-1">{{ $message }}</p>
                                                     @enderror
@@ -160,7 +170,8 @@
                                             <div class="form-group">
                                                 <label class="col-form-label">Color</label>
                                                 <div class="col-sm-12">
-                                                    <input type="text" class="form-control" name="color" />
+                                                    <input type="text" class="form-control" name="color"
+                                                        value="{{ $product->color }}" />
                                                 </div>
                                             </div>
                                         </div>
@@ -168,7 +179,8 @@
                                             <div class="form-group">
                                                 <label class="col-form-label">Quantity (Units)</label>
                                                 <div class="col-sm-12">
-                                                    <input type="text" class="form-control" name="quantity" />
+                                                    <input type="text" class="form-control" name="quantity"
+                                                        value="{{ $product->quantity }}" />
                                                 </div>
                                             </div>
                                         </div>
@@ -178,7 +190,8 @@
                                             <div class="form-group">
                                                 <label class="col-form-label">Weight</label>
                                                 <div class="col-sm-12">
-                                                    <input type="text" class="form-control" name="weight" />
+                                                    <input type="text" class="form-control" name="weight"
+                                                        value="{{ $product->weight }}" />
                                                 </div>
                                             </div>
                                         </div>
@@ -186,7 +199,8 @@
                                             <div class="form-group">
                                                 <label class="col-form-label">Year of Manufacture</label>
                                                 <div class="col-sm-12">
-                                                    <input type="text" class="form-control" name="y_o_m" />
+                                                    <input type="text" class="form-control" name="y_o_m"
+                                                        value="{{ $product->y_o_m }}" />
                                                 </div>
                                             </div>
                                         </div>
@@ -212,6 +226,8 @@
                                                 <label class="col-form-label">Additional Info</label>
                                                 <select class="js-example-basic-multiple form-control" multiple="multiple"
                                                     name="additionals">
+                                                    <option value="{{ $product->additionals }}">
+                                                        {{ $product->additionals }}</option>
                                                     <option value="Laptop Bag">Laptop Bag</option>
                                                     <option value="Video Card">Video Card</option>
                                                     <option value="USB">USB</option>
@@ -224,7 +240,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="col-form-label">Textarea</label>
-                                                <textarea class="form-control" id="exampleTextarea1" rows="4" name="description"></textarea>
+                                                <textarea class="form-control" id="exampleTextarea1" rows="4" name="description" value="">{{ $product->description }}</textarea>
                                             </div>
                                         </div>
                                     </div>

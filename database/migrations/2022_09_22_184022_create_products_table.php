@@ -27,7 +27,7 @@ class CreateProductsTable extends Migration
             $table->string('weight')->nullable();
             $table->decimal('screen');
             $table->text('description');
-            $table->json('images')->nullable();
+            $table->string('images')->nullable();
             $table->string('y_o_m')->nullable();
             $table->json('additionals')->nullable();
             $table->string('created_by');

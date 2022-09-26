@@ -85,14 +85,17 @@ class ProductController extends Controller
             $product->additionals = $request['additionals'];
             $product->created_by = Auth::user()->name;
 
-            if ($request->hasFile('images')) {
-                $image_path = $request->images;
-                foreach ($image_path as $image) {
-                    $image = $request->file('images')->store('products', 'public');
-                    $images[] = $image;
-                }
+            // if ($request->hasFile('images')) {
+            //     $image_path = $request->images;
+            //     foreach ($image_path as $image) {
+            //         $image = $request->file('images')->store('products', 'public');
+            //         $images[] = $image;
+            //     }
 
-                $product->images = $images;
+            //     $product->images = $images;
+            // }
+            if ($request->hasFile('images')) {
+                $product->images = $request->file('images')->store('products', 'public');
             }
 
             $product->save();
@@ -109,9 +112,11 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($id)
     {
-        //
+        $product = Product::find($id);
+
+        return view('admin.products.show', compact('product'));
     }
 
     /**
@@ -120,9 +125,11 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
-        //
+        $product = Product::find($id);
+        // dd($product);
+        return view('admin.products.edit', compact('product'));
     }
 
     /**
@@ -132,9 +139,32 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
-        //
+        $product = Product::find($id);
+        // dd($request);
+
+        $product->name = $request->input('name');
+        $product->brand = $request->input('brand');
+        $product->drive = $request->input('drive');
+        $product->processor = $request->input('processor');
+        $product->color = $request->input('color');
+        $product->storage = $request->input('storage');
+        $product->ram = $request->input('ram');
+        $product->quantity = $request->input('quantity');
+        $product->price = $request->input('price');
+        $product->weight = $request->input('weight');
+        $product->screen = $request->input('screen');
+        $product->description = $request->input('description');
+        $product->y_o_m = $request->input('y_o_m');
+        $product->additionals = $request->input('additionals');
+        $product->updated_by = Auth::user()->name;
+
+        $product->save();
+
+        if ($product->save()) {
+            return redirect()->back()->with('success', 'Product Updated Successfully');
+        }
     }
 
     /**
