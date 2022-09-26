@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.default.css') }}" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+    @livewireStyles
     <!-- Favicon-->
     {{-- <link rel="shortcut icon" href="img/favicon.png"> --}}
 </head>
@@ -35,6 +36,8 @@
         @yield('content')
     </div>
     @include('partials._footer')
+
+    @livewireScripts
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="vendor/glightbox/js/glightbox.min.js"></script>
     <script src="vendor/nouislider/nouislider.min.js"></script>

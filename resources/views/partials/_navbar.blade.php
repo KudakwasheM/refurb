@@ -30,9 +30,7 @@
                 <ul class="navbar-nav ms-auto">
 
                     @if (Auth::user())
-                        <li class="nav-item"><a class="nav-link" href="/cart"> <i
-                                    class="fas fa-dolly-flatbed me-1 text-gray"></i>Cart<small
-                                    class="text-gray fw-normal">({{ Cart::content()->count() }})</small></a></li>
+                        @livewire('cart-counter')
                         <li class="nav-item"><a class="nav-link" href="/my-likes"> <i
                                     class="far fa-heart me-1"></i><small class="text-gray fw-normal">
                                     (0)</small></a></li>
