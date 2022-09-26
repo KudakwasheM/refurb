@@ -32,7 +32,7 @@
                     @if (Auth::user())
                         <li class="nav-item"><a class="nav-link" href="/cart"> <i
                                     class="fas fa-dolly-flatbed me-1 text-gray"></i>Cart<small
-                                    class="text-gray fw-normal">(2)</small></a></li>
+                                    class="text-gray fw-normal">({{ Cart::content()->count() }})</small></a></li>
                         <li class="nav-item"><a class="nav-link" href="/my-likes"> <i
                                     class="far fa-heart me-1"></i><small class="text-gray fw-normal">
                                     (0)</small></a></li>
@@ -47,7 +47,7 @@
                     @else
                         <li class="nav-item"><a class="nav-link" href="/cart"> <i
                                     class="fas fa-dolly-flatbed me-1 text-gray"></i>Cart<small
-                                    class="text-gray fw-normal">(2)</small></a></li>
+                                    class="text-gray fw-normal">({{ Cart::content()->count() }})</small></a></li>
                         <li class="nav-item"><a class="nav-link" href="/login"> <i
                                     class="fas fa-user me-1 text-gray fw-normal"></i>Login</a></li>
                     @endif
