@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+
 
 class ProductController extends Controller
 {
@@ -178,5 +180,13 @@ class ProductController extends Controller
         $product->delete();
 
         return redirect()->back()->with('success', "Product Removed Successfully");
+    }
+
+    public function shop()
+    {
+        $products = Product::orderBy('created_at', 'desc')->paginate(12);
+        $cart = Cart::content();
+
+        return view('shop.shop', compact('products', 'cart'));
     }
 }

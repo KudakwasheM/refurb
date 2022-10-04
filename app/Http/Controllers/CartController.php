@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -23,12 +24,11 @@ class CartController extends Controller
         return redirect()->back()->with('success', 'Successfully Added');
     }
 
-    public function my_cart()
+    public function myCart()
     {
+        $user = Auth::user();
         $cart = Cart::content();
 
-        dd($cart);
-
-        return view('cart.cart', compact('cart'));
+        return view('cart.cart', compact('user', 'cart'));
     }
 }

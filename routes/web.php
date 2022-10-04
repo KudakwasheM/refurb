@@ -35,7 +35,11 @@ Route::get('/products/edit/{id}', [ProductController::class, 'edit']);
 Route::post('/products/update/{id}', [ProductController::class, 'update']);
 // Route::post('/login-post', [AuthController::class, 'login']);
 
+//Shop
+Route::get('/shop', [ProductController::class, 'shop']);
+
 
 //tests
 Route::get('/test', [HomeController::class, 'home']);
+Route::get('/cart', [CartController::class, 'mycart']);
 Route::post('/cart', [CartController::class, 'store']);
